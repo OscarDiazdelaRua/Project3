@@ -1,6 +1,9 @@
 # This project is made by Oscar Diaz de la Rua, Sebastian Valdes, and Enrique Montanez
-#Run main.py
-import equations.py
+# Run main.py
+
+# PROJECT 3 - ARTIST RECOMMENDATION USING CLUSTERING
+
+import equations
 
 
 if __name__ == '__main__':
