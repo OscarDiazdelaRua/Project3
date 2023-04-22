@@ -3,8 +3,8 @@
 # PROJECT 3 - ARTIST RECOMMENDATION USING CLUSTERING
 
 #Runs main.py
-import equations
-
+from equations import *
+import pandas as pd
 
 if __name__ == '__main__':
     
@@ -15,6 +15,8 @@ if __name__ == '__main__':
     print("Input instrumentalness")
     instrumentalness = input()
 
-    # def kmeans(danceability, energy, instrumentalness):
+    KMeans(danceability, energy, instrumentalness)
 
     # def DBSCAN(danceability, energy, instrumentalness):
+
+
