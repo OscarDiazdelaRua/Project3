@@ -1,5 +1,6 @@
 # This project is made by Oscar Diaz de la Rua, Sebastian Valdes
 #Run main.py
+# Project 3: Artist Recommendation System 
 
 print("Hello World!")
 
