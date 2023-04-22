@@ -1,4 +1,5 @@
-
+# This project is made by Oscar Diaz de la Rua 
+#Run main.py
 
 print("Hello World!")
 
