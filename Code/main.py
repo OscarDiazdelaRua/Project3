@@ -1,8 +1,17 @@
 # This project is made by Oscar Diaz de la Rua, Sebastian Valdes, and Enrique Montanez
 #Run main.py
-# Project 3: Artist Recommendation System 
-
-print("Hello World!")
+import equations.py
 
 
-print("Testing Testing 1 2 3")
+if __name__ == '__main__':
+    
+    print("Input danceability")
+    danceability = input()
+    print("Input energy")
+    energy = input()
+    print("Input instrumentalness")
+    instrumentalness = input()
+
+    # def kmeans(danceability, energy, instrumentalness):
+
+    # def DBSCAN(danceability, energy, instrumentalness):
