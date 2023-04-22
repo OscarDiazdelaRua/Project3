@@ -1,4 +1,4 @@
-# This project is made by Oscar Diaz de la Rua, Sebastian Valdes
+# This project is made by Oscar Diaz de la Rua, Sebastian Valdes, and Enrique Montanez
 #Run main.py
 
 print("Hello World!")
