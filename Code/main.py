@@ -1,6 +1,6 @@
 # This project is made by Oscar Diaz de la Rua, Sebastian Valdes, and Enrique Montanez
 #Run main.py
-import equations.py
+import equations
 
 
 if __name__ == '__main__':
