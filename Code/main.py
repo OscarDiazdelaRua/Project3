@@ -9,6 +9,11 @@ import pandas as pd
 
 if __name__ == '__main__':
     
+    # root = Tk()
+    # root.title("MusicZone")
+    # startingLabel =  Label(root, text="Welcome to the MusicZone!", font = "Helvetica 16 bold italic")
+
+
     print("Input danceability")
     danceability = float(input())
     print("Input energy")
@@ -23,7 +28,7 @@ if __name__ == '__main__':
         five_songs = KMeans(danceability, energy, instrumentalness)
     elif choice == "C":
         five_songs = findClosestSongs(danceability, energy, instrumentalness)
-    
+
     print(five_songs)
 
 

@@ -43,7 +43,7 @@ def selectPref3():
     # Create a Label Widget
     preference3 = Label(prefWindow, text="Instrumentalness", font = "Helvetica 16 bold italic")
     preference3.grid(row=0, column=250)
-    next_button = Button(prefWindow, text="Done!", padx=40, pady=20, command=root)
+    next_button = Button(prefWindow, text="Done!", padx=40, pady=20)
     next_button.grid(row=450, column=450)
 
 def loadingScreen():
