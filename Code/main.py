@@ -4,6 +4,7 @@
 
 #Runs main.py
 from equations import *
+from HomePage import *
 import pandas as pd
 
 if __name__ == '__main__':
@@ -22,7 +23,7 @@ if __name__ == '__main__':
         five_songs = KMeans(danceability, energy, instrumentalness)
     elif choice == "C":
         five_songs = findClosestSongs(danceability, energy, instrumentalness)
-
+    
     print(five_songs)
 
 

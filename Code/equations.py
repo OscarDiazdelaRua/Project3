@@ -7,7 +7,7 @@ import time
 def KMeans(danceability, energy, instrumentalness):
 
 
-    start_time = time.time()
+    # start_time = time.time()
 
 
     data = pd.read_csv("Data/artist_data.csv")
@@ -21,14 +21,13 @@ def KMeans(danceability, energy, instrumentalness):
 
     random.seed((danceability + energy + instrumentalness)*100)
 
-    centroids = X.sample(K, random_state=random.randint(0, 100)).reset_index(drop = True)   
+    centroids = X.sample(K) 
 
     for i in range(iterations):
 
         distances = []
         for j in range(K):
             distances.append(np.sqrt(np.sum((X - centroids.iloc[j])**2, axis=1)))
-
 
         labels = np.argmin(distances, axis = 0)
         for j in range(K):
@@ -50,7 +49,7 @@ def KMeans(danceability, energy, instrumentalness):
 
     # return closest_songs
 
-    second_centroids = centroid_data.sample(K, random_state=random.randint(0, 100)).reset_index(drop = True)
+    second_centroids = centroid_data.sample(K)
 
     for i in range(iterations):
         second_distances = []
@@ -70,10 +69,10 @@ def KMeans(danceability, energy, instrumentalness):
 
     sample_5_songs = data.loc[data.index.isin(second_centroid_songs.index)].sample(5)
 
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-    print(f"The function took {elapsed_time} seconds to run.")
-    print("Test")
+    # end_time = time.time()
+    # elapsed_time = end_time - start_time
+    # print(f"The function took {elapsed_time} seconds to run.")
+    # print("Test")
 
     return sample_5_songs
 
