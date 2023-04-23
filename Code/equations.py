@@ -56,8 +56,7 @@ def KMeans(danceability, energy, instrumentalness):
         second_distances = []
         for j in range(K):
             second_distances.append(np.sqrt(np.sum((centroid_data - second_centroids.iloc[j])**2, axis=1)))
-
-
+            
         second_labels = np.argmin(second_distances, axis = 0)
         for j in range(K):
             second_centroids.iloc[j] = centroid_data.loc[second_labels == j].mean()
