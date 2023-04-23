@@ -1,8 +1,30 @@
 # This project is made by Oscar Diaz de la Rua, Sebastian Valdes, and Enrique Montanez
-#Run main.py
-# Project 3: Artist Recommendation System 
 
-print("Hello World!")
+# PROJECT 3 - ARTIST RECOMMENDATION USING CLUSTERING
+
+#Runs main.py
+from equations import *
+import pandas as pd
+
+if __name__ == '__main__':
+    
+    print("Input danceability")
+    danceability = float(input())
+    print("Input energy")
+    energy = float(input())
+    print("Input instrumentalness")
+    instrumentalness = float(input())
+
+    print("KMeans or closest songs? (K or C)")
+    choice = input()
+
+    if choice == "K":
+        five_songs = KMeans(danceability, energy, instrumentalness)
+    elif choice == "C":
+        five_songs = findClosestSongs(danceability, energy, instrumentalness)
+
+    print(five_songs)
 
 
-print("Testing Testing 1 2 3")
+
+
