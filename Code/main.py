@@ -9,9 +9,8 @@ import pandas as pd
 
 if __name__ == '__main__':
     
-    # root = Tk()
-    # root.title("MusicZone")
-    # startingLabel =  Label(root, text="Welcome to the MusicZone!", font = "Helvetica 16 bold italic")
+    homePage()
+
 
 
     print("Input danceability")
