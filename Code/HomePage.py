@@ -33,42 +33,49 @@ def homePage():
     questionButton.pack(padx =(0,235),pady = 15,side= "right")
     home.mainloop()
 
+
+
 def selectPref1():
     # Create a new window
-    prefWindow = Tk()
-    prefWindow.title("Preferences")
-    prefWindow.geometry("500x500")
+    prefWindow1 = Toplevel(home)
+    prefWindow1.title("Preferences")
+    prefWindow1.geometry("500x500")
     # Create a Label Widget
-    preference1 = Label(prefWindow, text="Danceability", font = "Modern 16 bold italic")
+    preference1 = Label(prefWindow1, text="Danceability", font = "Modern 16 bold italic")
     preference1.grid(row=0, column=250)
-    next_button = Button(prefWindow, text="Next", padx=40, pady=20, command=selectPref2)
+    next_button = Button(prefWindow1, text="Next", padx=40, pady=20, command=lambda: selectPref2(prefWindow1))
     next_button.grid(row=450, column=450)
+    
 
-def selectPref2():
+def selectPref2(prefWindow1):
     # Create a new window
-    prefWindow = Tk()
+    prefWindow = Toplevel(home)
     prefWindow.title("Preferences")
     prefWindow.geometry("500x500")
     # Create a Label Widget
     preference2 = Label(prefWindow, text="Energy", font = "Modern 16 bold italic")
     preference2.grid(row=0, column=250)
-    next_button = Button(prefWindow, text="Next", padx=40, pady=20, command=selectPref3)
+    next_button = Button(prefWindow, text="Next", padx=40, pady=20, command=lambda: selectPref3(prefWindow))
     next_button.grid(row=450, column=450)
+    prefWindow1.destroy()
+    
+    
 
-def selectPref3():
+def selectPref3(temp):
     # Create a new window
-    prefWindow = Tk()
+    prefWindow = Toplevel(home)
     prefWindow.title("Preferences")
     prefWindow.geometry("500x500")
     # Create a Label Widget
     preference3 = Label(prefWindow, text="Instrumentalness", font = "Modern 16 bold italic")
     preference3.grid(row=0, column=250)
-    next_button = Button(prefWindow, text="Done!", padx=40, pady=20)
+    next_button = Button(prefWindow, text="Done!", padx=40, pady=20, command= prefWindow.destroy)
     next_button.grid(row=450, column=450)
+    temp.destroy()
 
 def loadingScreen():
     # Create a new window
-    prefWindow = Tk()
+    prefWindow = Toplevel(home)
     prefWindow.title("Loading")
     prefWindow.geometry("500x500")
     # Create a Label Widget
