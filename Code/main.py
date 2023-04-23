@@ -8,19 +8,23 @@ import pandas as pd
 
 if __name__ == '__main__':
     
-    # print("Input danceability")
-    # danceability = float(input())
-    # print("Input energy")
-    # energy = float(input())
-    # print("Input instrumentalness")
-    # instrumentalness = float(input())
+    print("Input danceability")
+    danceability = float(input())
+    print("Input energy")
+    energy = float(input())
+    print("Input instrumentalness")
+    instrumentalness = float(input())
 
-    danceability = 0.5
-    energy = 0.5
-    instrumentalness = 0.5
+    print("KMeans or closest songs? (K or C)")
+    choice = input()
 
-    KMeans(danceability, energy, instrumentalness)
-    # findClosestSongs(danceability, energy, instrumentalness)
-    # def DBSCAN(danceability, energy, instrumentalness):
+    if choice == "K":
+        five_songs = KMeans(danceability, energy, instrumentalness)
+    elif choice == "C":
+        five_songs = findClosestSongs(danceability, energy, instrumentalness)
+
+    print(five_songs)
+
+
 
 
