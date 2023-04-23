@@ -57,16 +57,16 @@ def loadingScreen():
 
 
 # Shove it onto the screen
-root = Tk()
-root.title("MusicZone")
-startingLabel =  Label(root, text="Welcome to the MusicZone!", font = "Helvetica 16 bold italic")
-Label(root, text="Welcome to the MusicZone!", font = "Helvetica 16 bold italic")
-startingLabel.pack()
-prefButton = Button(root, text="Select Preferences", padx=40, pady=20, command=selectPref1)
-prefButton.pack()
-button1 = Button(root, text="Use algorithm 1", padx=40, pady=20, command=loadingScreen)
-button1.pack()
-button2 = Button(root, text="Use algorithm 2", padx=40, pady=20, command=loadingScreen)
-button2.pack()
+# root = Tk()
+# root.title("MusicZone")
+# startingLabel =  Label(root, text="Welcome to the MusicZone!", font = "Helvetica 16 bold italic")
+# Label(root, text="Welcome to the MusicZone!", font = "Helvetica 16 bold italic")
+# startingLabel.pack()
+# prefButton = Button(root, text="Select Preferences", padx=40, pady=20, command=selectPref1)
+# prefButton.pack()
+# button1 = Button(root, text="Use algorithm 1", padx=40, pady=20, command=loadingScreen)
+# button1.pack()
+# button2 = Button(root, text="Use algorithm 2", padx=40, pady=20, command=loadingScreen)
+# button2.pack()
 
-root.mainloop()
+# root.mainloop()

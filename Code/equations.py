@@ -81,6 +81,7 @@ def KMeans(danceability, energy, instrumentalness):
    
 def findClosestSongs(danceability, energy, instrumentalness):
     
+    
 
     data = pd.read_csv("Data/artist_data.csv")
 
