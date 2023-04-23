@@ -9,9 +9,19 @@ import pandas as pd
 
 if __name__ == '__main__':
     
-    homePage()
+    # homePage()
 
+    prefWindow = Tk()
 
+    prefWindow.title("Example")
+    prefWindow.geometry("500x500")
+    img = Image.open("Data/Algovisualcomparison.PNG")
+    img = img.resize((500, 500), Image.ANTIALIAS)
+    img = ImageTk.PhotoImage(img)
+    
+    panel = Label(prefWindow, image = img)
+
+    panel.pack(side = "bottom", fill = "both", expand = "yes")
 
     print("Input danceability")
     danceability = float(input())

@@ -1,9 +1,10 @@
 from tkinter import *
+from PIL import Image, ImageTk
+home = Tk()
 
 def homePage():
     
 
-    home = Tk()
     home.resizable(False, False)
     window_width = 700
     window_height = 550
@@ -77,14 +78,37 @@ def loadingScreen():
 def displayImage():
     # Create a new window
 
-    prefWindow = Tk()
+    window_width = 500
+    window_height = 500
+    screen_width = home.winfo_screenwidth()
+    screen_height = home.winfo_screenheight()
+
+    x = int((screen_width/2) - (window_width/2))
+    y = int((screen_height/2) - (window_height/2))
+
+    prefWindow = Toplevel(home)
 
     prefWindow.title("Example")
-    prefWindow.geometry("500x500")
+    prefWindow.geometry("{}x{}+{}+{}".format(window_width, window_height, x, y))
     img = Image.open("Data/Algovisualcomparison.PNG")
-    panel = Label(prefWindow, image = img)
+    img = img.resize((500, 500), Image.ANTIALIAS)
+    img = ImageTk.PhotoImage(img)
 
-    panel.pack(side = "bottom", fill = "both", expand = "yes")
+    label = Label(prefWindow, image=img)
+    label.image = img  # Keep a reference to the image to prevent garbage collection
+    label.pack()
+
+    # prefWindow = Toplevel()
+
+    # prefWindow.title("Example")
+    # prefWindow.geometry("500x500")
+    # img = Image.open("Data/Algovisualcomparison.PNG")
+    # img = img.resize((500, 500), Image.ANTIALIAS)
+    # img = ImageTk.PhotoImage(img)
+    
+    # panel = Label(prefWindow, image = img)
+
+    # panel.pack(side = "bottom", fill = "both", expand = "yes")
 
 
     # prefWindow = Tk()
