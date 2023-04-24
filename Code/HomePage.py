@@ -2,11 +2,11 @@ from tkinter import *
 from tkinter import ttk
 from PIL import Image, ImageTk
 from equations import *
-
+import time
 home = Tk()
 
 values = [0,0,0]
-
+function_running = True
 # def homePage():
     
 
@@ -148,12 +148,29 @@ def selectPref3(previousWindow):
 
 def loadingScreen():
     # Create a new window
+    screen_width = home.winfo_screenwidth()
+    screen_height = home.winfo_screenheight()
+
+    x = int((screen_width/2) - (500/2))
+    y = int((screen_height/2) - (500/2))
     prefWindow = Toplevel(home)
-    prefWindow.title("Loading")
-    prefWindow.geometry("500x500")
+    prefWindow.title("Loading...")
+    prefWindow.geometry("500x500+{}+{}".format(x, y))
     # Create a Label Widget
     preference4 = Label(prefWindow, text="Loading...", font = "Consolas 16 bold italic")
     preference4.grid(row=0, column=250)
+    # TODO: Currently, loading screen does not have anything in frame, only tag. fix if see fit
+    
+    # start the progress bar animation
+    
+    home.after(1, lambda: calculationHelper(prefWindow))
+    
+    while function_running:
+        home.update_idletasks()
+        home.update()
+        time.sleep(.00001)
+   
+    loadingScreen.destroy()
 
 
 def displayImage():
@@ -181,6 +198,27 @@ def displayImage():
     label.image = img  # Keep a reference to the image to prevent garbage collection
     label.pack()
 
+def calculationHelper(previousWindow):
+    screen_width = home.winfo_screenwidth()
+    screen_height = home.winfo_screenheight()
+
+    x = int((screen_width/2) - (500/2))
+    y = int((screen_height/2) - (500/2))
+
+    # Create a new window
+    Window = Toplevel(home)
+    Window.title("Calculation Complete")
+    Window.geometry("500x500+{}+{}".format(x, y))
+    # Create a Label Widget
+    preference = Label(Window, text="Output", font = "Consolas 16 bold italic")
+    preference.pack()
+    temp = KMeans(float(values[0]), float(values[1]), float(values[2]))
+    print(temp)
+    # TODO: Place output in frame here 
+    next_button = Button(Window, text="Close", padx=40, pady=20, command= Window.destroy)
+    next_button.pack(side = "bottom", anchor = "se", padx = 20, pady = 20)
+    function_running = False
+    previousWindow.destroy()
     # prefWindow = Toplevel()
 
     # prefWindow.title("Example")

@@ -41,22 +41,22 @@ if __name__ == '__main__':
     
     home.mainloop()
 
-    print("Input danceability")
-    danceability = float(input())
-    print("Input energy")
-    energy = float(input())
-    print("Input instrumentalness")
-    instrumentalness = float(input())
+    # print("Input danceability")
+    # danceability = float(input())
+    # print("Input energy")
+    # energy = float(input())
+    # print("Input instrumentalness")
+    # instrumentalness = float(input())
 
-    print("KMeans or closest songs? (K or C)")
-    choice = input()
+    # print("KMeans or closest songs? (K or C)")
+    # choice = input()
 
-    if choice == "K":
-        five_songs = KMeans(danceability, energy, instrumentalness)
-    elif choice == "C":
-        five_songs = findClosestSongs(danceability, energy, instrumentalness)
+    # if choice == "K":
+    #     five_songs = KMeans(danceability, energy, instrumentalness)
+    # elif choice == "C":
+    #     five_songs = findClosestSongs(danceability, energy, instrumentalness)
 
-    print(five_songs)
+    # print(five_songs)
 
 
 

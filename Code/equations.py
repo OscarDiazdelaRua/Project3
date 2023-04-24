@@ -14,8 +14,8 @@ def KMeans(danceability, energy, instrumentalness):
     X = data[['danceability','energy','instrumentalness']]
 
 
-    K = 50
-    iterations = 30
+    K = 20
+    iterations = 5
 
     random.seed((danceability + energy + instrumentalness)*100)
 
