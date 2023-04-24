@@ -5,7 +5,7 @@ from equations import *
 import time
 home = Tk()
 
-values = [0,0,0]
+values = [0.5,0.5,0.5]
 function_running = True
 # def homePage():
     
@@ -48,7 +48,7 @@ def selectPref1():
 
     def scale1(val):
         values[0] = val
-        print(values[0])
+       
 
     screen_width = home.winfo_screenwidth()
     screen_height = home.winfo_screenheight()
@@ -84,8 +84,7 @@ def selectPref2(previousWindow):
 
     def scale2(val):
         values[1] = val
-        print(values[1])
-
+       
     screen_width = home.winfo_screenwidth()
     screen_height = home.winfo_screenheight()
 
@@ -118,8 +117,7 @@ def selectPref3(previousWindow):
 
     def scale3(val):
         values[2] = val
-        print(values[2])
-
+       
     screen_width = home.winfo_screenwidth()
     screen_height = home.winfo_screenheight()
 
@@ -163,7 +161,7 @@ def loadingScreen():
     
     # start the progress bar animation
     
-    home.after(1, lambda: calculationHelper(prefWindow))
+    home.after(1, lambda: KcalculationHelper(prefWindow))
     
     while function_running:
         home.update_idletasks()
@@ -171,6 +169,80 @@ def loadingScreen():
         time.sleep(.00001)
    
     loadingScreen.destroy()
+
+def loadingScreen2():
+    # Create a new window
+    screen_width = home.winfo_screenwidth()
+    screen_height = home.winfo_screenheight()
+
+    x = int((screen_width/2) - (500/2))
+    y = int((screen_height/2) - (500/2))
+    prefWindow = Toplevel(home)
+    prefWindow.title("Loading...")
+    prefWindow.geometry("500x500+{}+{}".format(x, y))
+    # Create a Label Widget
+    preference4 = Label(prefWindow, text="Loading...", font = "Consolas 16 bold italic")
+    preference4.grid(row=0, column=250)
+    # TODO: Currently, loading screen does not have anything in frame, only tag. fix if see fit
+    
+    # start the progress bar animation
+    
+    home.after(1, lambda: DcalculationHelper(prefWindow))
+    
+    while function_running:
+        home.update_idletasks()
+        home.update()
+        time.sleep(.00001)
+   
+    loadingScreen2.destroy()
+
+def DcalculationHelper(previousWindow):
+    screen_width = home.winfo_screenwidth()
+    screen_height = home.winfo_screenheight()
+
+    x = int((screen_width/2) - (500/2))
+    y = int((screen_height/2) - (500/2))
+
+    # Create a new window
+    Window = Toplevel(home)
+    Window.title("Calculation Complete using Distance")
+    Window.geometry("1000x200+{}+{}".format(x, y))
+    Window.resizable(False, False)
+
+    # Create a Label Widget
+    preference = Label(Window, text="Output", font = "Consolas 16 bold italic")
+    preference.pack()
+    temp = findClosestSongs(float(values[0]), float(values[1]), float(values[2]))
+   
+    artist1 = str(temp.iloc[0][2])
+    artist2 = str(temp.iloc[1][2])
+    artist3 = str(temp.iloc[2][2])
+    artist4 = str(temp.iloc[3][2])
+    artist5 = str(temp.iloc[4][2])
+
+    artist1 = artist1.replace("[", "").replace("]", "").replace("'", "")
+    artist2 = artist2.replace("[", "").replace("]", "").replace("'", "")
+    artist3 = artist3.replace("[", "").replace("]", "").replace("'", "")
+    artist4 = artist4.replace("[", "").replace("]", "").replace("'", "")
+    artist5 = artist5.replace("[", "").replace("]", "").replace("'", "")
+
+
+
+    output0 = Label(Window, text= "1. " +temp.iloc[0][1] + " -- by " + artist1, font = "Consolas 10 bold italic")
+    output0.pack()
+    output1 = Label(Window, text= "2. " +temp.iloc[1][1] + " -- by " + artist2, font = "Consolas 10 bold italic")
+    output1.pack()
+    output2 = Label(Window, text= "3. " +temp.iloc[2][1] + " -- by " + artist3, font = "Consolas 10 bold italic")
+    output2.pack()
+    output3 = Label(Window, text= "4. " +temp.iloc[3][1] + " -- by " + artist4, font = "Consolas 10 bold italic")
+    output3.pack()
+    output4 = Label(Window, text= "5. " +temp.iloc[4][1] + " -- by " + artist5, font = "Consolas 10 bold italic")
+    output4.pack()
+
+    next_button = Button(Window, text="Close", padx=40, pady=20, command= Window.destroy)
+    next_button.pack(side = "bottom", anchor = "se", padx = 20, pady = 20)
+    function_running = False
+    previousWindow.destroy()
 
 
 def displayImage():
@@ -198,7 +270,7 @@ def displayImage():
     label.image = img  # Keep a reference to the image to prevent garbage collection
     label.pack()
 
-def calculationHelper(previousWindow):
+def KcalculationHelper(previousWindow):
     screen_width = home.winfo_screenwidth()
     screen_height = home.winfo_screenheight()
 
@@ -207,14 +279,40 @@ def calculationHelper(previousWindow):
 
     # Create a new window
     Window = Toplevel(home)
-    Window.title("Calculation Complete")
-    Window.geometry("500x500+{}+{}".format(x, y))
+    Window.title("Calculation Complete using KMC")
+    Window.geometry("1000x200+{}+{}".format(x, y))
+    Window.resizable(False, False)
+
     # Create a Label Widget
     preference = Label(Window, text="Output", font = "Consolas 16 bold italic")
     preference.pack()
     temp = KMeans(float(values[0]), float(values[1]), float(values[2]))
-    print(temp)
     # TODO: Place output in frame here 
+    artist1 = str(temp.iloc[0][2])
+    artist2 = str(temp.iloc[1][2])
+    artist3 = str(temp.iloc[2][2])
+    artist4 = str(temp.iloc[3][2])
+    artist5 = str(temp.iloc[4][2])
+
+    artist1 = artist1.replace("[", "").replace("]", "").replace("'", "")
+    artist2 = artist2.replace("[", "").replace("]", "").replace("'", "")
+    artist3 = artist3.replace("[", "").replace("]", "").replace("'", "")
+    artist4 = artist4.replace("[", "").replace("]", "").replace("'", "")
+    artist5 = artist5.replace("[", "").replace("]", "").replace("'", "")
+
+
+
+    output0 = Label(Window, text= "1. " +temp.iloc[0][1] + " -- by " + artist1, font = "Consolas 10 bold italic")
+    output0.pack()
+    output1 = Label(Window, text= "2. " +temp.iloc[1][1] + " -- by " + artist2, font = "Consolas 10 bold italic")
+    output1.pack()
+    output2 = Label(Window, text= "3. " +temp.iloc[2][1] + " -- by " + artist3, font = "Consolas 10 bold italic")
+    output2.pack()
+    output3 = Label(Window, text= "4. " +temp.iloc[3][1] + " -- by " + artist4, font = "Consolas 10 bold italic")
+    output3.pack()
+    output4 = Label(Window, text= "5. " +temp.iloc[4][1] + " -- by " + artist5, font = "Consolas 10 bold italic")
+    output4.pack()
+
     next_button = Button(Window, text="Close", padx=40, pady=20, command= Window.destroy)
     next_button.pack(side = "bottom", anchor = "se", padx = 20, pady = 20)
     function_running = False

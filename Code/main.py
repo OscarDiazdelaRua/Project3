@@ -28,7 +28,7 @@ if __name__ == '__main__':
     welcomeLabel = Label(home, text="Welcome to the MusicZone!", font = "Consolas 16 bold italic")
     prefButton = Button(home, text="Select Preferences", font = "Consolas 12", width = 20, padx=40, pady=30, command=selectPref1)
     algorithm1Button = Button(home, text="Use Algorithm 1", font = "Consolas 12",width = 20, padx=40, pady=30, command=loadingScreen)
-    algorithm2Button = Button(home, text="Use Algorithm 2", font = "Consolas 12",width = 20, padx=40, pady=30)
+    algorithm2Button = Button(home, text="Use Algorithm 2", font = "Consolas 12",width = 20, padx=40, pady=30, command= loadingScreen2)
     exitButton = Button(home, text="Exit", font = "Consolas 12",width = 17, pady=20, command=home.destroy)
     questionButton = Button(home, text="?", font = "Consolas 12",width = 7, pady=20, command=displayImage)
     
