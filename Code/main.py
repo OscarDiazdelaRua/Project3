@@ -7,21 +7,39 @@ from equations import *
 from HomePage import *
 import pandas as pd
 
+
+
 if __name__ == '__main__':
     
-    # homePage()
+    home.resizable(False, False)
+    window_width = 700
+    window_height = 550
 
-    prefWindow = Tk()
 
-    prefWindow.title("Example")
-    prefWindow.geometry("500x500")
-    img = Image.open("Data/Algovisualcomparison.PNG")
-    img = img.resize((500, 500), Image.ANTIALIAS)
-    img = ImageTk.PhotoImage(img)
+
+    screen_width = home.winfo_screenwidth()
+    screen_height = home.winfo_screenheight()
+
+    x = int((screen_width/2) - (window_width/2))
+    y = int((screen_height/2) - (window_height/2))
+
+    home.title("MusicZone")
+    home.geometry("{}x{}+{}+{}".format(window_width, window_height, x, y))
+    welcomeLabel = Label(home, text="Welcome to the MusicZone!", font = "Consolas 16 bold italic")
+    prefButton = Button(home, text="Select Preferences", font = "Consolas 12", width = 20, padx=40, pady=30, command=selectPref1)
+    algorithm1Button = Button(home, text="Use Algorithm 1", font = "Consolas 12",width = 20, padx=40, pady=30, command=loadingScreen)
+    algorithm2Button = Button(home, text="Use Algorithm 2", font = "Consolas 12",width = 20, padx=40, pady=30)
+    exitButton = Button(home, text="Exit", font = "Consolas 12",width = 17, pady=20, command=home.destroy)
+    questionButton = Button(home, text="?", font = "Consolas 12",width = 7, pady=20, command=displayImage)
     
-    panel = Label(prefWindow, image = img)
-
-    panel.pack(side = "bottom", fill = "both", expand = "yes")
+    welcomeLabel.pack()
+    prefButton.pack(pady = 10)
+    algorithm1Button.pack(pady = 25)
+    algorithm2Button.pack(pady = 10)
+    exitButton.pack(padx = (215,0),pady = 15, side= "left")
+    questionButton.pack(padx =(0,215),pady = 15,side= "right")
+    
+    home.mainloop()
 
     print("Input danceability")
     danceability = float(input())

@@ -2,12 +2,10 @@
 import pandas as pd
 import numpy as np
 import random
-import time
 
 def KMeans(danceability, energy, instrumentalness):
 
 
-    # start_time = time.time()
 
 
     data = pd.read_csv("Data/artist_data.csv")
@@ -69,10 +67,6 @@ def KMeans(danceability, energy, instrumentalness):
 
     sample_5_songs = data.loc[data.index.isin(second_centroid_songs.index)].sample(5)
 
-    # end_time = time.time()
-    # elapsed_time = end_time - start_time
-    # print(f"The function took {elapsed_time} seconds to run.")
-    # print("Test")
 
     return sample_5_songs
 
