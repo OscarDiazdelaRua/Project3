@@ -5,7 +5,7 @@ from equations import *
 import time
 home = Tk()
 
-values = [0.5,0.5,0.5]
+values = [0,0,0]
 function_running = True
 # def homePage():
     
